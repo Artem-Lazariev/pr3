@@ -1,4 +1,4 @@
-let data = await fetch('./test.json').then(res => res.json())
-console.log(data["_embedded"]["events"][0])
-console.log(JSON.stringify(data, null, 2));
+let data = await fetch('./test.json').catch(err => {data = err}).then(res => res.json())
+
+console.log(JSON.stringify(data["_embedded"]["events"][0], null, 2));
 export { data };
